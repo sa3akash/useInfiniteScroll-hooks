@@ -32,7 +32,7 @@ export default function useInfiniteScroll(url) {
 
   const observer = useRef();
 
-  const lastBookElementRef = useCallback(
+  const lastElementRef = useCallback(
     (node) => {
       if (pageNumber >= 10) return; // limit to page numbers
       if (loading) return;
@@ -47,8 +47,14 @@ export default function useInfiniteScroll(url) {
     [loading, pageNumber]
   );
 
-  return { data, loading, error, lastBookElementRef };
+  return { data, loading, error, lastElementRef };
 }
+
+
+
+// how to use 
+
+// const { data, loading, error, lastElementRef } = useInfiniteScroll("https://jsonplaceholder.typicode.com/posts");
 
 
 
